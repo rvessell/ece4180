@@ -40,6 +40,10 @@ The MBED code can either be retrieved from the mbed folder in this Git or downlo
 
 MBED OS2 is all that is needed for this project. Once built and loaded, the mbed will look for a signal on P20 every second and respond accordingly.
 
+## Demo Video
+
+You can find a quick demo video [here](https://youtu.be/7Q74M9Q2uXY).
+
 # Images
 
 ## Schematic
