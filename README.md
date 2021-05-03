@@ -1,4 +1,8 @@
+## Background
+
 The purpose of this project is to create a proof of concept for a Machine Learning based system which identifies sirens and alerts drivers with hearing impairments.
+
+The inspiration for this device came from personal experience. I was riding with my grandfather who is deaf, an ambulance came up behind him and he could not hear the siren and had not seen the lights yet. By the time I alerted him to the ambulance, we had already slowed them down. If there was is a way that we could detect sirens for the hearing impared, we can hopefully save them valuable time when responding to an emergency.
 
 ## Hardware Used
 
