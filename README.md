@@ -14,6 +14,30 @@ DRV2605 Haptics Driver: This module was used to drive a small haptic vibration m
 
 RGB LED: Used to flash blue and red when a siren is detected. This is meant to simulate the LED indicators commonly found in newer vehicles.
 
+
+# PI Instructions
+
+Once you have downloaded the project, you can build the project by using
+
+```
+$ APP_AUDIO=1 make -j
+```
+
+To run this project, you will need to use SUDO for the ALSA access. You will also need to know which hardware device the USB device is using. The command below uses plughw:0,0, which means device 0, subdevice 0.
+
+```
+$ cd /build
+$ sudo ./audio plughw:0,0
+```
+
+# MBED Instructions
+
+The MBED code can either be retrieved from the mbed folder in this Git or downloaded from https://os.mbed.com/users/rvessell/code/4180FinalProject/
+
+MBED OS2 is all that is needed for this project. Once built and loaded, the mbed will look for a signal on P20 every second and respond accordingly.
+
+# Images
+
 ## Schematic
 
 ![](https://github.com/rvessell/ece4180/blob/master/imgs/Schematic.PNG)
