@@ -1,3 +1,8 @@
+# Siren Detection System
+
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/Overhead.jpg" alt="Overhead" width="400"/>
+
+
 ## Background
 
 The purpose of this project is to create a proof of concept for a Machine Learning based system which identifies sirens and alerts drivers with hearing impairments.
@@ -10,11 +15,20 @@ Raspberry Pi 4: This application was tested on a Raspberry Pi 4 Model BCM2711, R
 
 USB Microphone: I used SunFounder USB 2.0 Mini Microphone, however, any ALSA compatible microphone will work. This device is used to capture 1/4 of a second of sound to feed to the model.
 
+<img src="https://images-na.ssl-images-amazon.com/images/I/61Q3z22%2B8cL._AC_SL1500_.jpg" alt="USBMic" width="200"/>
+
+
 LPC1768: The main purpose of this device is to drive the output devices. I originally intended to use this device as the inference engine as well as the controller for the output devices. What I learned is that my model needed to be held in memory and was too large for the 32 KB that this device has.
+
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/LPC1768.jpg" alt="LPC1768" width="200"/>
 
 ULCD-144-G2 Serial Miniture LCD Module: This module is used to display a text alert when a siren is detected. This is meant to simulate the LCD screens commonly found in newer model vehicles.
 
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/ULCD144G2.jpg" alt="ULCD144G2" width="200"/>
+
 DRV2605 Haptics Driver: This module was used to drive a small haptic vibration motor when a siren is detected. This is meant to simulate the seat rumble/vibration feature commonly found in newer vehicles. This was used in combination with DZS Elec Mini Vibration Motors.
+
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/DRV2605L.jpg" alt="DRV2605L" width="200"/>
 
 RGB LED: Used to flash blue and red when a siren is detected. This is meant to simulate the LED indicators commonly found in newer vehicles.
 
@@ -44,6 +58,22 @@ MBED OS2 is all that is needed for this project. Once built and loaded, the mbed
 
 You can find a quick demo video [here](https://youtu.be/7Q74M9Q2uXY).
 
+## Presentation Video
+
+A presentation on this project can be found [here](https://youtu.be/XDTL9r-mx2U).
+
+# Conclusion
+
+Overall, the device functions as anticipated. If a siren is detected by the model, non-auditory alerts are provided to the driver.
+
+The model predicts a siren with 98% accuracy when using wav files to test but in reality, the detection rate should be much lower. I am seeing more false positives than I would like. This is mainly due to the restrictive nature of the labels I am using. Having something be a siren or not siren leaves a lot of middle ground out there where things might be a siren. For example, a song may have similar frequency patterns but sound nothing like a siren. Since I didn't train the model to classify music apart from sirens, it may lean more towards an incorrect classification that I would like.
+
+In the future, I would like to re-train the model to incorporate the ambulance and fire truck sirens into one label called siren, I would also like to add in other common audio labels that a driver may encounter. For example, I would like to add music, speech, construction equipment, and even silence. Once these labels are included, I believe the accuracy will increase dramatically.
+
+Additionally, I believe that re-working the model's processing layers may make it smaller and thus able to fit onto a single self contained board.
+
+Lastly, I would like to look into integrating with an vehicle's CAN BUS to use existing output devices in the vehicle as a real world test.
+
 # Images
 
 ## Schematic
@@ -54,12 +84,6 @@ You can find a quick demo video [here](https://youtu.be/7Q74M9Q2uXY).
 
 Overhead View:
 ![](https://github.com/rvessell/ece4180/blob/master/imgs/Overhead.jpg)
-
-DRV2605L
-![](https://github.com/rvessell/ece4180/blob/master/imgs/DRV2605L.jpg)
-
-ULCD-144G2
-![](https://github.com/rvessell/ece4180/blob/master/imgs/ULCD144G2.jpg)
 
 LPC1768
 ![](https://github.com/rvessell/ece4180/blob/master/imgs/LPC1768.jpg)
