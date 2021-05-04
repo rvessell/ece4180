@@ -1,6 +1,7 @@
 # Siren Detection System
+-Ryan Vessell
 
-<img src="https://github.com/rvessell/ece4180/blob/master/imgs/Overhead.jpg" alt="Overhead" width="400"/>
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/Overhead.jpg" alt="Overhead" width="400" />
 
 
 ## Background
@@ -12,6 +13,8 @@ The inspiration for this device came from personal experience. I was riding with
 ## Hardware Used
 
 Raspberry Pi 4: This application was tested on a Raspberry Pi 4 Model BCM2711, Revision c03111, running RaspianOS. This code will likely work with other version of Pi but has not been tested. This device is primarily used as the inference engine. It collects audio samples froma a USB microphone, runs the TensorFlow Lite model inference on the sample, and produces a percentage of classification for each label supplied to the model. In the first itteration, this is only traffic noise and sirens. Once a siren is detected, a GPIO pin is used to send a signal to a GPIO pin on the LPC1768.
+
+<img src="https://github.com/rvessell/ece4180/blob/master/imgs/RBPI.jpg" alt="RBPI"  width="200"/>
 
 USB Microphone: I used SunFounder USB 2.0 Mini Microphone, however, any ALSA compatible microphone will work. This device is used to capture 1/4 of a second of sound to feed to the model.
 
@@ -74,16 +77,4 @@ Additionally, I believe that re-working the model's processing layers may make i
 
 Lastly, I would like to look into integrating with an vehicle's CAN BUS to use existing output devices in the vehicle as a real world test.
 
-# Images
-
-## Schematic
-
-![](https://github.com/rvessell/ece4180/blob/master/imgs/Schematic.PNG)
-
-## Images
-
-Overhead View:
-![](https://github.com/rvessell/ece4180/blob/master/imgs/Overhead.jpg)
-
-LPC1768
-![](https://github.com/rvessell/ece4180/blob/master/imgs/LPC1768.jpg)
+For any questions, please feel free to open an issue up or contact me (Ryan Vessell) directly at rvessell@gatech.edu.
